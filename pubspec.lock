@@ -42,7 +42,7 @@ packages:
     source: hosted
     version: "1.17.2"
   dio:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: dio
       sha256: "417e2a6f9d83ab396ec38ff4ea5da6c254da71e4db765ad737a42af6930140b7"
@@ -92,7 +92,7 @@ packages:
     source: sdk
     version: "0.0.0"
   hooks_riverpod:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: hooks_riverpod
       sha256: "2827136ecc0c2abffc3a58e575db6d5b84d159977fa1edc223c97bf566aa8c73"
@@ -139,6 +139,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  network:
+    dependency: "direct main"
+    description:
+      path: network
+      relative: true
+    source: path
+    version: "0.0.1"
   path:
     dependency: transitive
     description:
@@ -155,6 +162,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.5"
+  shared_dependency:
+    dependency: "direct main"
+    description:
+      path: shared_dependency
+      relative: true
+    source: path
+    version: "0.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
