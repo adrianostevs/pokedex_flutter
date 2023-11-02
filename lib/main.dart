@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_flutter/dependency_injection.dart';
 
 void main() {
+  dependencies();
   runApp(const MainApp());
 }
 

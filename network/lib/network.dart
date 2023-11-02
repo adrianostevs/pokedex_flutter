@@ -1,9 +1,6 @@
 library network;
 
 export 'package:network/network.dart';
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:network/service/http_client.dart';
+export 'package:network/datasource/remote/pokemon/pokemon_remote_datasource.dart';
+export 'package:network/datasource/remote/pokemon/pokemon_remote_datasource_impl.dart';
