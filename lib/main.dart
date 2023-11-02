@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/dependency_injection.dart';
+import 'package:pokedex_flutter/ui/splash/splash_screen.dart';
+import 'package:pokedex_flutter/util/routes/routes.dart';
 
 void main() {
   dependencies();
-  runApp(const MainApp());
+  runApp(const App());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      title: 'Restaurant App',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        useMaterial3: true,
       ),
+      initialRoute: SplashScreen.routeName,
+      routes: routes(),
     );
   }
 }
