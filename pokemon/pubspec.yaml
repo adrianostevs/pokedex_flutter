@@ -1,4 +1,4 @@
-name: shared_dependency
+name: pokemon
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -10,12 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^5.3.3
-  hooks_riverpod: ^2.4.5
-  intl: ^0.18.1
-  sqflite: ^2.3.0
-  get_it: ^7.6.4
-  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

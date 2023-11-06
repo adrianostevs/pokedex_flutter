@@ -9,8 +9,29 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/pokeball.png
+  AssetGenImage get pokeball =>
+      const AssetGenImage('assets/images/pokeball.png');
+
+  /// File path: assets/images/pokeball_color.png
+  AssetGenImage get pokeballColor =>
+      const AssetGenImage('assets/images/pokeball_color.png');
+
+  /// File path: assets/images/pokedex_icon.png
+  AssetGenImage get pokedexIcon =>
+      const AssetGenImage('assets/images/pokedex_icon.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [pokeball, pokeballColor, pokedexIcon];
+}
+
 class Assets {
   Assets._();
+
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

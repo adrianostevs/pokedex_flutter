@@ -12,4 +12,7 @@ class FontFamily {
 
   /// Font family: Pokemon
   static const String pokemon = 'Pokemon';
+
+  /// Font family: Pokemon Classic
+  static const String pokemonClassic = 'Pokemon Classic';
 }

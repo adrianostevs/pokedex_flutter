@@ -11,8 +11,12 @@ dependencies:
     path: network
   shared_dependency:
     path: shared_dependency
+  pokemon:
+    path: pokemon
   flutter:
     sdk: flutter
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
 
 dev_dependencies:
   flutter_test:
@@ -20,6 +24,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.4.6
   flutter_gen_runner: ^5.3.1
+  freezed: ^2.3.5
+  json_serializable: ^6.7.0
 
 flutter:
   uses-material-design: true
@@ -31,3 +37,6 @@ flutter:
     - family: Pokemon
       fonts:
         - asset: fonts/pokemon_solid.ttf
+    - family: Pokemon Classic
+      fonts:
+        - asset: fonts/pokemon_classic.ttf
