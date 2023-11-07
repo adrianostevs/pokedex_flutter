@@ -18,7 +18,6 @@ class PokemonRemoteDatasourceImpl implements PokemonRemoteDatasource {
     final getListPokemon =
         await _client.get(ApiConstants.GET_POKEMON, queryRequest.toJson());
     return getListPokemon.when(success: (data) {
-      print('hererererer $data');
       final Response<dynamic> response = data;
       final listPokemon = ListPokemonResponse.fromJson(response.data);
       return RemoteSource.success(data: listPokemon);

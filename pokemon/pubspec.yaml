@@ -31,3 +31,7 @@ dev_dependencies:
   riverpod_lint: ^2.3.3
 
 flutter:
+  fonts:
+    - family: Pokemon Classic
+      fonts:
+        - asset: ../fonts/pokemon_classic.ttf

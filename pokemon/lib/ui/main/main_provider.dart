@@ -10,39 +10,43 @@ enum MainState { loading, success, failed }
 
 class MainProvider extends ChangeNotifier {
   MainProvider() {
-    getListPokemon();
+    getListPokemon(0);
   }
 
   MainState _mainState = MainState.success;
   MainState get state => _mainState;
   ListPokemon _listPokemons = ListPokemon(count: 0, results: []);
   ListPokemon get listPokemons => _listPokemons;
+  PagingController<int, ListPokemon> pagingController =
+      PagingController(firstPageKey: 0);
 
-  Future<dynamic> getListPokemon() async {
-    print('here1');
+  void init() {
+    pagingController.addPageRequestListener((pageKey) {
+      getListPokemon(pageKey * 20);
+    });
+  }
+
+  Future<dynamic> getListPokemon(int page) async {
     var usecase = GetIt.I<PokemonUsecase>();
     try {
       _mainState = MainState.loading;
       notifyListeners();
-      final listPokemon =
-          await usecase.getListPokemon(ListPokemonQuery(offset: 0, limit: 0));
+      final listPokemon = await usecase
+          .getListPokemon(ListPokemonQuery(offset: page, limit: 20));
       listPokemon.whenOrNull(
         success: (data) {
           _mainState = MainState.success;
           notifyListeners();
-          print('here $data');
           return _listPokemons = data;
         },
         error: (message) {
           _mainState = MainState.failed;
           notifyListeners();
-          print('here2');
         },
       );
     } catch (e) {
       _mainState = MainState.failed;
       notifyListeners();
-      print('here3 $e');
     }
   }
 }

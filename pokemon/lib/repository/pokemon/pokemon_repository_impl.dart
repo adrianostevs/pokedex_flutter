@@ -17,7 +17,6 @@ class PokemonRepositoryImpl implements PokemonRepository {
     final response = await datasource
         .getListPokemon(ListPokemonQueryMapper.mapDomainToRequest(request));
     return response.when(success: (data) {
-      print('herere $data');
       return ViewState.success(
           data: ListPokemonMapper.mapResponseToDomain(data));
     }, error: (code, msg) {
