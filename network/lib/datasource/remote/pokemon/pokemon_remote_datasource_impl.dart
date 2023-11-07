@@ -5,6 +5,7 @@ import 'package:network/model/response/pokemon/pokemon_response.dart';
 import 'package:network/service/api_constants.dart';
 import 'package:network/service/http_client.dart';
 import 'package:network/service/remote_source.dart';
+import 'package:shared_dependency/shared_dependency.dart';
 
 class PokemonRemoteDatasourceImpl implements PokemonRemoteDatasource {
   final HttpClient _client;
@@ -17,7 +18,10 @@ class PokemonRemoteDatasourceImpl implements PokemonRemoteDatasource {
     final getListPokemon =
         await _client.get(ApiConstants.GET_POKEMON, queryRequest.toJson());
     return getListPokemon.when(success: (data) {
-      return RemoteSource.success(data: data);
+      print('hererererer $data');
+      final Response<dynamic> response = data;
+      final listPokemon = ListPokemonResponse.fromJson(response.data);
+      return RemoteSource.success(data: listPokemon);
     }, error: (code, msg) {
       return RemoteSource.error(code: code, message: msg);
     });

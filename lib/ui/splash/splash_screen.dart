@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/gen/assets.gen.dart';
 import 'package:pokedex_flutter/gen/fonts.gen.dart';
 import 'package:pokedex_flutter/ui/main/main_screen.dart';
-import 'package:shared_dependency/shared_dependency.dart';
+import 'package:shared_dependency/shared_dependency.dart' as shared;
 
 class SplashScreen extends StatefulWidget {
   static const routeName = '/splash';
@@ -62,9 +62,9 @@ class _SplashState extends State<SplashScreen> with TickerProviderStateMixin {
               ),
               Stack(
                 children: [
-                  AnimatedTextKit(
+                  shared.AnimatedTextKit(
                     animatedTexts: [
-                      TyperAnimatedText(
+                      shared.TyperAnimatedText(
                         'Pokedex',
                         textStyle: const TextStyle(
                           fontFamily: FontFamily.pokemon,
@@ -77,9 +77,9 @@ class _SplashState extends State<SplashScreen> with TickerProviderStateMixin {
                     totalRepeatCount: 1,
                     isRepeatingAnimation: false,
                   ),
-                  AnimatedTextKit(
+                  shared.AnimatedTextKit(
                     animatedTexts: [
-                      TyperAnimatedText(
+                      shared.TyperAnimatedText(
                         'Pokedex',
                         textStyle: TextStyle(
                             fontFamily: FontFamily.pokemon,

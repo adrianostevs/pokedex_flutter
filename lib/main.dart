@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/dependency_injection.dart';
 import 'package:pokedex_flutter/ui/splash/splash_screen.dart';
 import 'package:pokedex_flutter/util/routes/routes.dart';
+import 'package:shared_dependency/shared_dependency.dart';
 
 void main() {
   dependencies();
@@ -13,7 +14,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ProviderScope(
+        child: MaterialApp(
       title: 'Restaurant App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
@@ -21,6 +23,6 @@ class App extends StatelessWidget {
       ),
       initialRoute: SplashScreen.routeName,
       routes: routes(),
-    );
+    ));
   }
 }
