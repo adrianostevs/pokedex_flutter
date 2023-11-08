@@ -5,8 +5,12 @@ import 'package:pokemon/pokemon.dart' as pokemon;
 
 Map<String, WidgetBuilder> routes() {
   return {
+    //MAIN MODULE
     SplashScreen.routeName: (context) => const SplashScreen(),
     MainScreen.routeName: (context) => const MainScreen(),
+
+    //POKEMON MODULE
     pokemon.MainScreen.routeName: (context) => const pokemon.MainScreen(),
+    pokemon.DetailScreen.routeName: (context) => const pokemon.DetailScreen(),
   };
 }

@@ -6,6 +6,7 @@ import 'package:pokemon/domain/usecase/pokemon/pokemon_usecase.dart';
 import 'package:shared_dependency/shared_dependency.dart';
 
 final mainProvider = ChangeNotifierProvider((ref) => MainProvider());
+final pokemonProvider = StateProvider((ref) => null);
 
 enum MainState { loading, success, failed }
 
