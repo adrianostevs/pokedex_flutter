@@ -28,10 +28,21 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [pokeball, pokeballColor, pokedexIcon];
 }
 
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/pokeball_loading_new.json
+  String get pokeballLoadingNew => 'assets/lottie/pokeball_loading_new.json';
+
+  /// List of all assets
+  List<String> get values => [pokeballLoadingNew];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class AssetGenImage {

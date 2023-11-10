@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pokemon/domain/entity/list_pokemon/list_pokemon.dart';
 import 'package:pokemon/domain/entity/list_pokemon/query/list_pokemon_query.dart';
 import 'package:pokemon/domain/entity/list_pokemon/result/result.dart';
+import 'package:pokemon/domain/entity/pokemon/pokemon.dart';
 import 'package:pokemon/domain/usecase/pokemon/pokemon_usecase.dart';
+import 'package:pokemon/ui/detail/detail_screen.dart';
 import 'package:shared_dependency/shared_dependency.dart';
 
 final mainProvider = ChangeNotifierProvider((ref) => MainProvider());
-final pokemonProvider = StateProvider((ref) => null);
+final pokemonProvider = StateProvider((ref) =>
+    Pokemon(height: 0, id: 0, name: '', stats: [], types: [], weight: 0));
 
 enum MainState { loading, success, failed }
 
@@ -57,6 +60,30 @@ class MainProvider extends ChangeNotifier {
     } catch (e) {
       _mainState = MainState.failed;
       pagingController.error = e.toString;
+      notifyListeners();
+    }
+  }
+
+  Future<dynamic> getPokemon(
+      String params, WidgetRef ref, BuildContext context) async {
+    var usecase = GetIt.I<PokemonUsecase>();
+    try {
+      DialogLoading(context: context).showLoading();
+      final pokemon = await usecase.getPokemon(params);
+      pokemon.whenOrNull(
+        success: (data) {
+          DialogLoading(context: context).dismissLoading();
+          ref.read(pokemonProvider.notifier).state = data;
+          print('datanya $data');
+          Navigator.pushNamed(context, DetailScreen.routeName);
+          notifyListeners();
+        },
+        error: (message) {
+          notifyListeners();
+        },
+      );
+    } catch (e) {
+      print('cek $e');
       notifyListeners();
     }
   }

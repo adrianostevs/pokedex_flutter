@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon/domain/entity/list_pokemon/result/result.dart';
-import 'package:pokemon/ui/detail/detail_screen.dart';
 import 'package:pokemon/ui/main/main_provider.dart';
 import 'package:pokemon/util/string_extension.dart';
 import 'package:pokemon/util/text_style.dart';
@@ -17,6 +16,7 @@ class MainScreen extends ConsumerWidget {
         MainProvider provider = ref.watch(mainProvider);
         return Scaffold(
           body: Stack(
+            fit: StackFit.expand,
             children: [
               Positioned.fill(
                 child: Image.asset(
@@ -36,8 +36,7 @@ class MainScreen extends ConsumerWidget {
                           itemBuilder: (context, item, index) {
                         return GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(
-                                context, DetailScreen.routeName);
+                            provider.getPokemon(item.name, ref, context);
                           },
                           onLongPress: () {},
                           child: Container(
@@ -72,6 +71,10 @@ class MainScreen extends ConsumerWidget {
                               crossAxisCount: 2),
                     ),
                   ),
+                )
+              } else ...{
+                const Center(
+                  child: CircularProgressIndicator(),
                 )
               }
             ],

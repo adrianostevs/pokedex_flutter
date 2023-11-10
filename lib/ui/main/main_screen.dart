@@ -6,6 +6,7 @@ import 'package:pokedex_flutter/ui/main/main_menu.dart';
 import 'package:pokedex_flutter/util/style/colors.dart';
 import 'package:pokedex_flutter/util/style/text_styles.dart';
 import 'package:pokemon/pokemon.dart' as pokemon;
+import 'package:shared_dependency/shared_dependency.dart' as shared;
 
 class MainScreen extends StatelessWidget {
   static const routeName = '/main';
@@ -68,7 +69,7 @@ class MainScreen extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );

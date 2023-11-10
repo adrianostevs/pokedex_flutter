@@ -6,5 +6,5 @@ import 'package:network/service/remote_source.dart';
 abstract class PokemonRemoteDatasource {
   Future<RemoteSource<ListPokemonResponse>> getListPokemon(
       ListPokemonQueryRequest queryRequest);
-  Future<RemoteSource<PokemonResponse>> getPokemon(dynamic params);
+  Future<RemoteSource<PokemonResponse>> getPokemon(String params);
 }
