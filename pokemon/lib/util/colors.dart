@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
+  //pokemon_type
   static const bug = Color.fromRGBO(23, 154, 85, 1);
   static const dark = Color.fromRGBO(4, 7, 6, 1);
   static const dragon = Color.fromRGBO(55, 138, 148, 1);
@@ -20,4 +21,12 @@ class AppColors {
   static const rock = Color.fromRGBO(75, 25, 14, 1);
   static const steel = Color.fromRGBO(92, 117, 109, 1);
   static const water = Color.fromRGBO(38, 72, 220, 1);
+
+  //stats_color
+  static const hp = Color.fromRGBO(213, 58, 71, 1);
+  static const attack = Color.fromRGBO(255, 167, 38, 1);
+  static const defense = Color.fromRGBO(0, 145, 234, 1);
+  static const speed = Color.fromRGBO(144, 177, 197, 1);
+  static const specialAttack = Color.fromRGBO(205, 108, 39, 1);
+  static const specialDefense = Color.fromRGBO(30, 105, 151, 1);
 }
