@@ -3,6 +3,7 @@ import 'package:berry/ui/main/main_provider.dart';
 import 'package:berry/util/string_extension.dart';
 import 'package:berry/util/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_dependency/shared_dependency.dart';
 
 class MainScreen extends ConsumerWidget {
@@ -17,9 +18,10 @@ class MainScreen extends ConsumerWidget {
         return Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
             leading: IconButton(
                 onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                icon: const Icon(Icons.arrow_back_ios_new_rounded)),
             backgroundColor: Colors.transparent,
           ),
           body: Stack(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pokedex_flutter/dependency_injection.dart';
 import 'package:pokedex_flutter/ui/splash/splash_screen.dart';
 import 'package:pokedex_flutter/util/routes/routes.dart';
@@ -14,8 +15,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark, //Android
+        statusBarBrightness: Brightness.light //iOS
+        ));
+
     return ProviderScope(
         child: MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Pokedex Flutter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),

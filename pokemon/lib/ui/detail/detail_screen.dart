@@ -46,12 +46,14 @@ class DetailScreen extends ConsumerWidget {
           Container(
             height: 100,
             margin: const EdgeInsets.only(
-                top: 112, left: 16, right: 16, bottom: 24),
+                top: 144, left: 16, right: 16, bottom: 24),
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
@@ -75,6 +77,7 @@ class DetailScreen extends ConsumerWidget {
                   height: 16,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -109,6 +112,7 @@ class DetailScreen extends ConsumerWidget {
                 ),
                 Expanded(
                   child: ListView.builder(
+                    padding: const EdgeInsets.all(0),
                     itemCount: pokemon.stats.length,
                     itemBuilder: (context, index) {
                       return _statsBar(pokemon.stats[index]);
@@ -118,10 +122,13 @@ class DetailScreen extends ConsumerWidget {
               ],
             ),
           ),
-          Image.network(
-            pokemon.id.toString().getPokemonImage(),
-            alignment: Alignment.topCenter,
-            scale: 2.5,
+          Padding(
+            padding: const EdgeInsets.only(top: 32),
+            child: Image.network(
+              pokemon.id.toString().getPokemonImage(),
+              alignment: Alignment.topCenter,
+              scale: 2.5,
+            ),
           )
         ],
       ),

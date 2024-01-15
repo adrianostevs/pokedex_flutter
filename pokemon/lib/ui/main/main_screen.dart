@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pokemon/domain/entity/list_pokemon/result/result.dart';
 import 'package:pokemon/ui/main/main_provider.dart';
 import 'package:pokemon/util/string_extension.dart';
@@ -19,8 +20,9 @@ class MainScreen extends ConsumerWidget {
           appBar: AppBar(
             leading: IconButton(
                 onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                icon: const Icon(Icons.arrow_back_ios_new_rounded)),
             backgroundColor: Colors.transparent,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
           body: Stack(
             fit: StackFit.expand,
@@ -72,7 +74,7 @@ class MainScreen extends ConsumerWidget {
                                       style: TextStyles.regular(
                                           fontSize: constraints.maxWidth > 600
                                               ? 20
-                                              : 14),
+                                              : 12),
                                     )
                                   ],
                                 ),
