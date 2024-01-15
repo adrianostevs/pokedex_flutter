@@ -27,10 +27,13 @@ class PokemonRemoteDatasourceImpl implements PokemonRemoteDatasource {
   }
 
   @override
-  Future<RemoteSource<PokemonResponse>> getPokemon(params) async {
-    final getPokemon = await _client.get(ApiConstants.GET_POKEMON, params);
+  Future<RemoteSource<PokemonResponse>> getPokemon(String params) async {
+    final getPokemon =
+        await _client.get(ApiConstants.GET_POKEMON + params, null);
     return getPokemon.when(success: (data) {
-      return RemoteSource.success(data: data);
+      final Response<dynamic> response = data;
+      final pokemon = PokemonResponse.fromJson(response.data);
+      return RemoteSource.success(data: pokemon);
     }, error: (code, msg) {
       return RemoteSource.error(code: code, message: msg);
     });

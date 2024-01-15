@@ -8,9 +8,9 @@ class TextStyles {
           {double fontSize = 14,
           Color color = Colors.black,
           double? height,
-          FontWeight? fontWeight}) =>
+          FontWeight fontWeight = FontWeight.w600}) =>
       TextStyle(
-        fontWeight: fontWeight ?? FontWeight.w600,
+        fontWeight: fontWeight,
         fontSize: fontSize,
         fontFamily: FontFamily.pokemonClassic,
         color: color,

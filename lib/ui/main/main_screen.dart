@@ -6,6 +6,7 @@ import 'package:pokedex_flutter/ui/main/main_menu.dart';
 import 'package:pokedex_flutter/util/style/colors.dart';
 import 'package:pokedex_flutter/util/style/text_styles.dart';
 import 'package:pokemon/pokemon.dart' as pokemon;
+import 'package:berry/berry.dart' as berry;
 
 class MainScreen extends StatelessWidget {
   static const routeName = '/main';
@@ -68,7 +69,7 @@ class MainScreen extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -124,7 +125,7 @@ class MainScreen extends StatelessWidget {
         Navigator.pushNamed(context, pokemon.MainScreen.routeName);
         break;
       case 2:
-        Navigator.pushNamed(context, routeName);
+        Navigator.pushNamed(context, berry.MainScreen.routeName);
         break;
     }
   }
